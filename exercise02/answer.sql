@@ -1,7 +1,8 @@
 --let me start this answer by saying that my usual fix for deadlocks is:
 --select * from pg_stat_activity
---then kill anything that looks stuck (wait_event_type like '%Lock') using select pg_terminate_backend(pid)
---and if that doesn't fix it, reboot the RDS (which is likely not a valid option for BenchPreps solution)
+--check if my process has (wait_event_type like '%Lock')
+--then kill anything that has a query that might be interfering with the deadlock I am noticing using select pg_terminate_backend(pid)
+--and if that doesn't fix it, reboot the RDS (which is likely not a valid option for BenchPrep solution)
 
 --i havent used 9.6 before, but apparently there is a new function which has improved speed/accuracy over the typical pg_locks self-joins:
 --NOTE: SYNTAX NOT TESTED YET
