@@ -47,9 +47,14 @@ def get_remote_command(file_content, destination):
 def modify_remote_host_ssh_access(host, user, cmd):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(host, username=user)
-    client.exec_command(cmd)
-    client.close()
+
+    try:
+        client.connect(host, username=user)
+        client.exec_command(cmd)
+    except paramiko.ssh_exception.SSHException as e:
+        print(e)
+    finally:
+        client.close()
 
 
 if __name__ == '__main__':

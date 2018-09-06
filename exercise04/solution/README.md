@@ -2,7 +2,9 @@
 
 Enables SSH access for a provided list of public keys on a set of remote hosts.
 
-To execute, provide one or more hosts to be updated and a file path containing the public keys to be granted access:
+Tested against Python 2 and Python 3.
+
+To execute, install requirements (installing into a virtualenv or similar is recommended) and provide one or more hosts to be updated and a file path containing the public keys to be granted access:
 
 ```bash
 $ python ssh-access-util.py --hosts 127.0.0.1 localhost --keyfile ~/developer-keys
@@ -27,7 +29,6 @@ optional arguments:
   -d DEST, --dest DEST  File destination to be replaced with new public key
                         content contained in provided `--keyfile` data
 ```
-
 
 This script makes the following assumptions:
 
