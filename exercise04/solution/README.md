@@ -1,8 +1,8 @@
-## SSH Access Utility
+# SSH Access Utility
 
 Enables SSH access for a provided list of public keys on a set of remote hosts.
 
-Tested against Python 2 and Python 3.
+## Usage
 
 To execute, install requirements (installing into a virtualenv or similar is recommended) and provide one or more hosts to be updated and a file path containing the public keys to be granted access:
 
@@ -30,7 +30,13 @@ optional arguments:
                         content contained in provided `--keyfile` data
 ```
 
+## Assumptions
+
 This script makes the following assumptions:
 
 - The user running the script already has established SSH access to the hosts to be modified
 - The user running the script has valid permissions on the remote host to perform the implemented actions
+
+## Compatibility
+
+Should be compatible with Python 2 and 3.4+.  Tested against Python 2.7.10 and Python 3.6.4.
